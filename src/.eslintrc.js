@@ -3,14 +3,14 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: 'airbnb-base',
+  extends: ['airbnb-base', 'plugin:prettier/recommended'], // Add 'plugin:prettier/recommended' for Prettier integration
   overrides: [
     {
       env: {
         node: true,
       },
       files: [
-        '.eslintrc.{js,cjs}',
+        '.eslintrc.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -18,19 +18,19 @@ module.exports = {
     },
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: 12,
     sourceType: 'module',
   },
   rules: {
-    'indent':'off',
-    'linebreak-style': 'off',
     'quotes': ['error', 'single'],
     'semi': ['error', 'always'],
-    'no-console': "off",
+    'no-console': 'off',
     'no-unused-vars': 'warn',
     'no-underscore-dangle': 'off',
     'no-restricted-syntax': 'off',
     'prefer-const': 'error',
     'prefer-template': 'error',
+    'linebreak-style': 'off',
+    'prettier/prettier': 'error', // Enable the prettier/prettier rule for Prettier integration
   },
 };

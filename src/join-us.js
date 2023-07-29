@@ -24,7 +24,7 @@ const JoinUsSection = {
     const footer = document.querySelector('footer');
     footer.insertAdjacentHTML('beforebegin', this.htmlElem);
 
-    const submitButton = document.querySelector('button.app-section__button--subscribe');
+    const submitButton = document.querySelector('button.app-section__button--subscribe'); 
     submitButton.addEventListener('click', function (e) {
       e.preventDefault();
       const emailInput = document.getElementById('email');
@@ -57,5 +57,4 @@ class SectionCreatorFactory {
     }
   }
 }
-
 export { SectionCreatorFactory };
