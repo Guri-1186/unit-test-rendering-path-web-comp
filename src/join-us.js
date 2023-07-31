@@ -24,24 +24,50 @@ const JoinUsSection = {
     const footer = document.querySelector('footer');
     footer.insertAdjacentHTML('beforebegin', this.htmlElem);
 
-    const submitButton = document.querySelector('button.app-section__button--subscribe'); 
-    submitButton.addEventListener('click', function (e) {
-      e.preventDefault();
-      const emailInput = document.getElementById('email');
-      const email = emailInput.value.trim();
+   
+
+const emailInput = document.getElementById('email');
+const submitButton = document.querySelector('button.app-section__button--subscribe');
+
+
+const savedEmail = localStorage.getItem('subscribe');
+
+
+if (savedEmail) {
+  emailInput.value = savedEmail;
+}
+
+
+emailInput.addEventListener('input', function (e) {
+  const email = emailInput.value.trim();
+  localStorage.setItem('subscribe', email);
+});
+
+
+submitButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  const email = emailInput.value.trim();
+
+ 
+  const isValidEmail = validate(email);
+
+  if (isValidEmail) {
     
-      // Validate the email address using the validate function
-      const isValidEmail = validate(email);
+    emailInput.style.display = 'none';
+    submitButton.textContent = 'Unsubscribe';
+    localStorage.setItem('subscribe', email); 
+  } else {
     
-      // Display an alert message with the result of the validation
-      if (isValidEmail) {
-        alert('Email address is valid.');
-      } else {
-        alert('Please enter a valid email address.');
-      }
-    });
-  },
+    emailInput.style.display = 'block';
+    submitButton.textContent = 'Subscribe';
+
+  
+    localStorage.removeItem('subscribe');
+  }
+});
+},
 };
+
 
 class SectionCreatorFactory {
   createSection(type) {
@@ -57,4 +83,6 @@ class SectionCreatorFactory {
     }
   }
 }
+
+
 export { SectionCreatorFactory };
