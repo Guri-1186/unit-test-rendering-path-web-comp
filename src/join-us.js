@@ -37,7 +37,6 @@ if (savedEmail) {
   emailInput.value = savedEmail;
 }
 
-
 emailInput.addEventListener('input', function (e) {
   const email = emailInput.value.trim();
   localStorage.setItem('subscribe', email);
@@ -50,6 +49,7 @@ submitButton.addEventListener('click', function (e) {
 
  
   const isValidEmail = validate(email);
+  //implementing functionality for sending a user email to the server 
 
   if (isValidEmail) {
     
