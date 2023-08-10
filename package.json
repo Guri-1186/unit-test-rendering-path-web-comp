@@ -5,6 +5,8 @@
   "main": "src/main.js",
   "scripts": {
     "test": "npx mocha \"src/**/*.test.js\" --recursive --require @babel/register",
+    "test:watch": "npx mocha \"src/**/*.test.js\" --recursive --require @babel/register --watch",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development",
     "lint": "eslint"
@@ -28,7 +30,9 @@
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
     "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
     "prettier": "^3.0.0",
+    "sinon": "^15.2.0",
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
     "webpack": "^5.88.2",
