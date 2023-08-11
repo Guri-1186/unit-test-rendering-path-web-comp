@@ -35,6 +35,8 @@ describe('validate - validity of an email address based on its domain', () => {
     });
   });
   
+
+
   describe('validateAsync - functionality', () => {
     const VALID_EMAIL_ENDINGS = ['gmail.com', 'outlook.com', 'yandex.ru'];
   
@@ -57,6 +59,8 @@ describe('validate - validity of an email address based on its domain', () => {
       }
     });
   });
+
+  
 
   
   describe('validateWithThrow - functionality', () => {
